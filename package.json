@@ -1,0 +1,26 @@
+{
+  "name": "mia",
+  "version": "1.0.0",
+  "description": "MIA genera cursos personalizados sobre IA, adaptados a cada estudiante, ofreciendo soluciones rápidas y prácticas para avanzar en su aprendizaje.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jonny-Start/MIA.git"
+  },
+  "author": "X-Tutors",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Jonny-Start/MIA/issues"
+  },
+  "homepage": "https://github.com/Jonny-Start/MIA#readme",
+  "dependencies": {
+    "express": "^4.21.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
