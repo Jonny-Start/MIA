@@ -25,10 +25,11 @@ app.set('views', path.join(__dirname, 'views'));
 
 // Configuración de archivos estáticos
 app.use(express.static(path.join(__dirname, '..', 'public')));
+app.use(express.static('public'));
 
 // Rutas
 const indexRouter = require('./routes');
-app.use('*', indexRouter);
+app.use('/', indexRouter);
 
 // Middleware para manejar errores
 app.use((err, req, res, next) => {

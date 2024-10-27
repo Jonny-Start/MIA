@@ -1,0 +1,112 @@
+.hide,
+.hidden {
+    display: none;
+}
+
+html {
+    background-color: $background_pages_MIA;
+    overflow: hidden;
+}
+
+body {
+    // background-color: $background_pages_MIA;
+    color: $black_MIA;
+    height: 100vh;
+    top: 0;
+    position: relative;
+    display: contents;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+    font-family: Outfit, sans-serif;
+
+
+    footer#contentByPlatzi {
+        position: absolute;
+        bottom: 15px;
+        width: 100%;
+        text-align: center;
+
+        img#ByPlatzi {
+            width: 5em;
+        }
+    }
+
+    a,
+    a:visited,
+    a:hover,
+    a:active {
+        color: inherit;
+        /* Usa el color del contenedor para todos los estados */
+        text-decoration: none;
+        display: block;
+        width: fit-content;
+    }
+
+    section#logoHeader {
+        width: fit-content;
+        display: flex;
+        font-size: 2em;
+        flex-direction: row;
+        align-content: flex-end;
+        gap: 15px;
+        height: fit-content;
+        margin-left: 1.5em;
+        margin-top: 1em;
+
+        img {
+            width: 33px;
+            align-self: baseline;
+        }
+
+        h2 {
+            margin: 0;
+        }
+    }
+
+
+
+    section#generateAndLogin {
+        background-color: $black_MIA;
+        width: 8.5rem;
+        height: 33px;
+        align-content: center;
+        padding: 2px 3px;
+        border-radius: 20px;
+
+        position: absolute;
+        transform: translate(0%, 0%);
+        top: 2.8em;
+        right: 2.5em;
+
+        span {
+            background-color: $purple_MIA;
+            display: inline-block;
+            height: 31px;
+            border-radius: 20px;
+            width: 5.5em;
+            align-content: center;
+            padding-left: 7px;
+
+            p {
+                color: white;
+                width: fit-content;
+                margin: 0;
+                display: contents;
+            }
+
+            img {
+                width: 0.8em;
+                display: inline-block;
+                margin-right: 4px;
+            }
+        }
+
+        i {
+            color: white;
+            margin-left: 0.5em;
+        }
+    }
+
+}
