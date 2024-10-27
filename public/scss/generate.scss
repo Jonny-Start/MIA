@@ -1,0 +1,97 @@
+body#generate {
+
+    section#content {
+        width: 100%;
+        text-align: center;
+        text-align: -webkit-center;
+        margin-top: 8em;
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 100;
+        }
+
+        .contentCards {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 1em;
+
+            .card {
+                width: 15em;
+                background-color: white;
+                height: 16em;
+                border-radius: 20px;
+                position: relative;
+                text-align: left;
+
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                padding: 1em 2em;
+
+
+                input[type="radio"] {
+                    accent-color: #48eb8b;
+                    /* Color del punto interno */
+                    appearance: none;
+                    /* Quita el estilo nativo del input */
+                    width: 16px;
+                    height: 16px;
+                    border: 1px solid #48eb8b;
+                    /* Borde del círculo */
+                    border-radius: 50%;
+                    display: inline-block;
+                    position: relative;
+                }
+
+                input[type="radio"]:checked::before {
+                    content: "";
+                    width: 8px;
+                    height: 8px;
+                    background-color: #48eb8b;
+                    /* Color del punto interno */
+                    border-radius: 50%;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+
+            }
+
+            .card.buttons {
+                label {
+                    background-color: #f5f5f5;
+                    text-align: center;
+                    line-height: 2.4em;
+                    border-radius: 20px;
+
+                }
+
+                input[type="radio"] {
+                    display: none;
+                }
+
+                input[type="radio"]:checked + label {
+                    background-color: #48eb8b;
+                    color: white;
+                }
+            }
+
+        }
+
+        button {
+            background-color: $black_MIA;
+            color: white;
+            border: none;
+            line-height: 2em;
+            border-radius: 20px;
+            width: 8em;
+            margin-top: 10em;
+            cursor: pointer;
+        }
+    }
+}

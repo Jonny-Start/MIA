@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MIA</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="icon" type="image/x-icon" href="/img/icono.ico">
+  <script src="/js/kit_fontawesome.js" crossorigin="anonymous"></script> <!-- 6.5.2 -->
+  <script src="/js/kit_fontawesome.js" crossorigin="anonymous"></script> <!-- 6.5.2 -->
+  <link rel="stylesheet" href="/css/animate.min.css" /> <!-- 4.1.1 -->
+</head>
+
+<body id="<%- body %>" class="<%= body == 'home' ? 'background' : '' %>">
+  <%- include(body, { data: typeof data !='undefined' ? data : [] }) %>
+</body>
+
+</html>
