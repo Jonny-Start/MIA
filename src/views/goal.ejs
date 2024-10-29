@@ -1,0 +1,51 @@
+<%- include('./hooks/logoHeader.ejs') %>
+<%- include('./hooks/generateAndLogin.ejs') %>
+
+<section id="content">
+    <h1>¿Cual es tu objetivo?</h1>
+    <div class="contentCards">
+        <div class="card">
+            <div class="card__img">
+                <img src="/img/ray.svg" alt="Pérdida de peso">
+            </div>
+            <p>Necesito bases rápidas sobre este tema</p>
+        </div>
+
+        <div class="card">
+            <div class="card__img">
+                <img src="/img/notebook.svg" alt="Pérdida de peso">
+            </div>
+            <p>Quiero aclarar dudas técnicas y profundizar</p>
+        </div>
+
+        <div class="card">
+            <div class="card__img">
+                <img src="/img/puzzle.svg" alt="Pérdida de peso">
+            </div>
+            <p>Busco un reto o proyecto práctico</p>
+        </div>
+    </div>
+    <button type="button" id="buttonNext">Siguiente</button>
+</section>
+
+<script type="text/javascript">
+    const cards = document.querySelectorAll('.card');
+    const button = document.querySelector('#buttonNext');
+
+    cards.forEach(card => {
+        card.addEventListener('click', () => {
+            cards.forEach(item => item.classList.remove('active'));
+            card.classList.add('active');
+        });
+    });
+
+    button.addEventListener('click', () => {
+        const selectedCard = document.querySelector('.active');
+        if (selectedCard) {
+            window.location.href = '/generate';
+        } else {
+            alert('Selecciona una opción');
+        }
+    });
+</script>
+<%- include('./hooks/ByPlatzi.ejs') %>

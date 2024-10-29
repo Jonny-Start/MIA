@@ -1,0 +1,58 @@
+<%- include('./hooks/logoHeader.ejs') %>
+<%- include('./hooks/generateAndLogin.ejs') %>
+
+<section id="content">
+    <h1>Personaliza tu experiencia de aprendizaje</h1>
+    <div class="contentCards">
+        <div class="card">
+            <h3>Duración del curso:</h3>
+            <label for="15min">
+                <input type="radio" name="duration" value="15" id="15min">
+                15 min. o menos
+            </label>
+            <label for="30min">
+                <input type="radio" name="duration" value="30" id="30min">
+                20 - 30 min.
+            </label>
+            <label for="40min">
+                <input type="radio" name="duration" value="40" id="40min">
+                30 - 40 min.
+            </label>
+            <label for="60min">
+                <input type="radio" name="duration" value="60" id="60min">
+                60 min.
+            </label>
+        </div>
+
+        <div class="card buttons">
+            <h3>Formato:</h3>
+            <input type="radio" name="format" value="video" id="video">
+            <label for="video">Video</label>
+
+            <input type="radio" name="format" value="text" id="text">
+            <label for="text">Texto</label>
+
+            <input type="radio" name="format" value="audio" id="audio">
+            <label for="audio">Audio</label>
+        </div>
+
+        <div class="card">
+            <h3>Nivel de dificultad:</h3>
+            <label for="bases">
+                <input type="radio" name="level" value="1" id="bases">
+                Bases
+            </label>
+            <label for="specific">
+                <input type="radio" name="level" value="2" id="specific">
+                Tema específico
+            </label>
+            <label for="advanced">
+                <input type="radio" name="level" value="3" id="advanced">
+                Avanzado
+            </label>
+        </div>
+    </div>
+    <button type="button" id="buttonNext">Siguiente</button>
+</section>
+
+<%- include('./hooks/ByPlatzi.ejs') %>

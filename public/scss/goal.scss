@@ -1,0 +1,70 @@
+body#goal {
+
+    section#content {
+        width: 100%;
+        text-align: center;
+        text-align: -webkit-center;
+        margin-top: 8em;
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 100;
+        }
+
+        .contentCards {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 1em;
+
+            .card {
+                width: 15em;
+                background-color: white;
+                height: 16em;
+                border-radius: 20px;
+                position: relative;
+
+                .card__img {
+                    padding: 2em;
+                    width: calc(100% - 4em);
+                    height: calc(100% - 4em);
+                    border-radius: 20px;
+                    align-content: center;
+
+                    img {
+                        width: 6.5em;
+                    }
+                }
+
+                p {
+                    position: absolute;
+                    bottom: -3.5em;
+                    font-size: 15px;
+                    width: calc(100% - 20px);
+                    text-align: center;
+                    font-weight: 100;
+                    padding: 0px 10px 0px 10px;
+                    margin: 0;
+                }
+            }
+
+            .card:hover,
+            .card.active {
+                background-color: $light_green_MIA;
+            }
+        }
+
+        button {
+            background-color: $black_MIA;
+            color: white;
+            border: none;
+            line-height: 2em;
+            border-radius: 20px;
+            width: 8em;
+            margin-top: 10em;
+            cursor: pointer;
+        }
+    }
+}

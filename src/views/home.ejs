@@ -1,0 +1,21 @@
+<section id="logoHeader">
+    <img src="/img/icono_white.svg" alt="Isotipo de MIA">
+    <h2>mia</h2>
+</section>
+
+<%- include('./hooks/generateAndLogin.ejs') %>
+
+<section id="content">
+    <p>Rompiendo las barreras del aprendizaje en inteligencia artificial.</p>
+    <h1 class="animate__animated animate__pulse animate__repeat-2">¿Qué te gustaría aprender hoy?</h1>
+    <div id="contentInput">
+        <input type="search" name="search" id="search" placeholder="Describe el tema o habilidad que quieres aprender sobre IA..">
+        <img src="/img/mic.svg" alt="Isotipo de un microfono">
+        <button type="button" onclick="javascript: window.location.href = '/goal' ">Siguiente</button>
+    </div>
+</section>
+
+<footer id="contentByPlatzi">
+    <img src="/img/ByPlatzi_White.svg" alt="By Platzi" id="ByPlatzi"
+        class="animate__animated animate__backInUp animate__fast" />
+</footer>
