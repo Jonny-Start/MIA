@@ -47,6 +47,14 @@ body#home {
                 margin-right: 1em;
                 cursor: pointer;
             }
+
+            button.iconMic{
+                background-color: transparent;
+                width: 14px;
+                margin: 0;
+                padding: 0;
+                display: contents;          
+            }
         }
     }
 }
