@@ -49,11 +49,18 @@ body#home {
             }
 
             button.iconMic{
-                background-color: transparent;
-                width: 14px;
+                background-color: #aa56ec;
+                width: 36px;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                height: 28px;
+                align-items: center;
                 margin: 0;
                 padding: 0;
-                display: contents;          
+            }
+            button.iconMic.active{
+                background-color: #42f983;
             }
         }
     }

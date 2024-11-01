@@ -1,40 +1,53 @@
 <section id="logoHeader">
-    <img src="/img/icono_white.svg" alt="Isotipo de MIA">
-    <h2>mia</h2>
+  <img src="/img/icono_white.svg" alt="Isotipo de MIA">
+  <h2>mia</h2>
 </section>
+
+<script src="https://unpkg.com/siriwave/dist/siriwave.umd.min.js"></script>
+
 
 <%- include('./hooks/generateAndLogin.ejs') %>
 
 <section id="content">
-    <p>Rompiendo las barreras del aprendizaje en inteligencia artificial.</p>
-    <h1 class="animate__animated animate__pulse animate__repeat-2">¿Qué te gustaría aprender hoy?</h1>
-    <div id="contentInput">
-        <input type="search" name="search" id="search" placeholder="Describe el tema o habilidad que quieres aprender sobre IA..">
-        <button type="button" id="buttonMic" class="iconMic" value="disconnect"><img src="/img/mic.svg" alt="Isotipo de un microfono"></button>
-        <button type="button" onclick="javascript: window.location.href = '/goal' ">Siguiente</button>
-    </div>
+  <p>Rompiendo las barreras del aprendizaje en inteligencia artificial.</p>
+  <h1 class="animate__animated animate__pulse animate__repeat-2">¿Qué te gustaría aprender hoy?</h1>
+  <div id="contentInput">
+    <input type="search" name="search" id="search" placeholder="Describe el tema o habilidad que quieres aprender sobre IA..">
+    <button type="button" id="buttonMic" class="iconMic" value="disconnect"><img src="/img/mic.svg" alt="Isotipo de un microfono"></button>
+    <button type="button" onclick="javascript: window.location.href = '/goal' ">Siguiente</button>
+  </div>
 </section>
 
+<div id="visualiser"></div>
+
+
 <footer id="contentByPlatzi">
-    <img src="/img/ByPlatzi_White.svg" alt="By Platzi" id="ByPlatzi"
-        class="animate__animated animate__backInUp animate__fast" />
+  <img src="/img/ByPlatzi_White.svg" alt="By Platzi" id="ByPlatzi" class="animate__animated animate__backInUp animate__fast" />
 </footer>
 
 
 <iframe id="realtime-voice-invisible-iframe" src="http://localhost:3000" style="display: none" allow="microphone"></iframe>
 
 <script type="text/javascript">
-
-
-const buttonMic = document.getElementById('buttonMic');
-buttonMic.addEventListener('click', () => {
+  const buttonMic = document.getElementById('buttonMic');
+  buttonMic.addEventListener('click', () => {
     let value = buttonMic.value == 'disconnect' ? 'connect' : 'disconnect';
     const iframe = document.getElementById('realtime-voice-invisible-iframe');
-    iframe.contentWindow.postMessage({type: value}, '*');
+    iframe.contentWindow.postMessage({
+      type: value
+    }, '*');
 
     buttonMic.value = value;
-});
+    buttonMic.classList.toggle('active');
+  });
+</script>
 
 
-
+<script>
+  const siriWave = new SiriWave({
+    container: document.querySelector('#visualiser'),
+    cover: true, // means the visualisation scales *responsively* according to the element's dimensions
+    height: 400,
+    style: "ios9"
+  });
 </script>
