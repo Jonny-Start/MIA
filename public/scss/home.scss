@@ -47,6 +47,21 @@ body#home {
                 margin-right: 1em;
                 cursor: pointer;
             }
+
+            button.iconMic{
+                background-color: #aa56ec;
+                width: 36px;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                height: 28px;
+                align-items: center;
+                margin: 0;
+                padding: 0;
+            }
+            button.iconMic.active{
+                background-color: #42f983;
+            }
         }
     }
 }
