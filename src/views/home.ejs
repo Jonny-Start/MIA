@@ -75,10 +75,10 @@
 
       visualiser.classList.contains('hide') ? '' : visualiser.classList.add('hide');
       changeText.classList.contains('hide') ? '' : changeText.classList.add('hide');
-      textMic.innerText = 'Presiona para hablar con Mia';
-
+      
       changeIconMic('disconnect');
       connect_interaction('disconnect');
+      textMic.innerText = 'Presiona para hablar con Mia';
     }
 
     localStorage.setItem('mode_view', newMode);
@@ -88,9 +88,9 @@
 
   const connect_interaction = (type_method) => {
     changeIconMic(type_method);
-    iframe.contentWindow.postMessage({
-      type: type_method
-    }, '*');
+    // iframe.contentWindow.postMessage({
+    //   type: type_method
+    // }, '*');
   };
 
 
