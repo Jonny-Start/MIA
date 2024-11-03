@@ -5,6 +5,7 @@ const router = express.Router();
 const homeController = require('../controllers/home.controller');
 const goalController = require('../controllers/goal.controller');
 const generateController = require('../controllers/generate.controller');
+const themesController = require('../controllers/themes.controller');
 
 
 
@@ -14,6 +15,7 @@ router.get('/', (req, res) => (res.redirect('/home')));
 router.route('/home').get(homeController.get).post(homeController.post);
 router.route('/goal').get(goalController.get).post(goalController.post);
 router.route('/generate').get(generateController.get).post(generateController.post);
+router.route('/themes').get(themesController.get).post(themesController.post);
 
 
 //Export
