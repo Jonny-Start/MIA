@@ -1,53 +1,141 @@
+<iframe title="" id="realtime-voice-invisible-iframe" src="http://localhost:3000" class="hidden"
+  allow="microphone"></iframe>
+
+<script src="/js/siriwave.umd.min.js"></script>
+
 <section id="logoHeader">
   <img src="/img/icono_white.svg" alt="Isotipo de MIA">
   <h2>mia</h2>
 </section>
 
-<script src="https://unpkg.com/siriwave/dist/siriwave.umd.min.js"></script>
-
-
 <%- include('./hooks/generateAndLogin.ejs') %>
 
 <section id="content">
-  <p>Rompiendo las barreras del aprendizaje en inteligencia artificial.</p>
-  <h1 class="animate__animated animate__pulse animate__repeat-2">¿Qué te gustaría aprender hoy?</h1>
+  <p>¡Hola! Soy Mia</p>
+  <h1 class="animate__animated animate__pulse animate__repeat-2">¿Qué te gustaría aprender hoy <br /> sobre
+    inteligencia Artificial</h1>
+
   <div id="contentInput">
-    <input type="search" name="search" id="search" placeholder="Describe el tema o habilidad que quieres aprender sobre IA..">
-    <button type="button" id="buttonMic" class="iconMic" value="disconnect"><img src="/img/mic.svg" alt="Isotipo de un microfono"></button>
+    <input type="search" name="search" id="search" placeholder="Envía un mensaje a Mia...">
     <button type="button" onclick="javascript: window.location.href = '/goal' ">Siguiente</button>
   </div>
+
+  <div id="visualiser" class="hide"></div>
 </section>
 
-<div id="visualiser"></div>
-
+<div id="contentMic">
+  <button type="button" id="buttonMic" class="iconMic" value="disconnect">
+    <img src="/img/Mic_icon_no_containter.svg" id="iconMic" class="" alt="Isotipo de un microfono">
+    <img src="/img/Pause_icon_no_container.svg" id="iconPause" class="hide" alt="Isotipo de pause">
+  </button>
+  <p id="textMic">Presiona para hablar con Mia</p>
+  <button type="button" id="changeText" class="hide">
+    <img src="/img/Keyboard_white.svg" alt="Isotipo de un teclado"> Continuar con texto
+  </button>
+</div>
 
 <footer id="contentByPlatzi">
-  <img src="/img/ByPlatzi_White.svg" alt="By Platzi" id="ByPlatzi" class="animate__animated animate__backInUp animate__fast" />
+  <img src="/img/ByPlatzi_White.svg" alt="By Platzi" id="ByPlatzi"
+    class="animate__animated animate__backInLeft animate__fast" />
 </footer>
 
 
-<iframe id="realtime-voice-invisible-iframe" src="http://localhost:3000" style="display: none" allow="microphone"></iframe>
 
 <script type="text/javascript">
+
+  document.addEventListener('DOMContentLoaded', () => {
+    localStorage.setItem('mode_view', 1);
+  });
+
+  const iframe = document.getElementById('realtime-voice-invisible-iframe');
+
   const buttonMic = document.getElementById('buttonMic');
+  const contentInput = document.getElementById('contentInput');
+  const visualiser = document.getElementById('visualiser');
+  const changeText = document.getElementById('changeText');
+  const iconMic = document.getElementById('iconMic');
+  const iconPause = document.getElementById('iconPause');
+  const textMic = document.getElementById('textMic');
+
+  const change_active_view = () => {
+    // 1 = Text / 2 = Voice
+    let currentMode = localStorage.getItem('mode_view');
+    let newMode = currentMode == 1 ? 2 : 1;
+
+    if (newMode == 2) {
+      contentInput.classList.contains('hide') ? '' : contentInput.classList.add('hide');
+
+      visualiser.classList.contains('hide') ? visualiser.classList.remove('hide') : '';
+      changeText.classList.contains('hide') ? changeText.classList.remove('hide') : '';
+
+      changeIconMic('connect');
+      connect_interaction('connect');
+    } else {
+      contentInput.classList.contains('hide') ? contentInput.classList.remove('hide') : '';
+
+      visualiser.classList.contains('hide') ? '' : visualiser.classList.add('hide');
+      changeText.classList.contains('hide') ? '' : changeText.classList.add('hide');
+      textMic.innerText = 'Presiona para hablar con Mia';
+
+      changeIconMic('disconnect');
+      connect_interaction('disconnect');
+    }
+
+    localStorage.setItem('mode_view', newMode);
+    return;
+  }
+
+
+  const connect_interaction = (type_method) => {
+    changeIconMic(type_method);
+    iframe.contentWindow.postMessage({
+      type: type_method
+    }, '*');
+  };
+
+
   buttonMic.addEventListener('click', () => {
     let value = buttonMic.value == 'disconnect' ? 'connect' : 'disconnect';
-    const iframe = document.getElementById('realtime-voice-invisible-iframe');
-    iframe.contentWindow.postMessage({
-      type: value
-    }, '*');
+    let currentMode = localStorage.getItem('mode_view');
+    currentMode == 1 && change_active_view();
 
-    buttonMic.value = value;
-    buttonMic.classList.toggle('active');
+    return connect_interaction(value);
   });
-</script>
+  changeText.addEventListener('click', () => {
+    return change_active_view();
+  });
 
 
-<script>
-  const siriWave = new SiriWave({
-    container: document.querySelector('#visualiser'),
-    cover: true, // means the visualisation scales *responsively* according to the element's dimensions
-    height: 400,
+  function changeIconMic(option) {
+    if (option == 'connect') {
+      iconMic.classList.contains('hide') ? '' : iconMic.classList.add('hide');
+      iconPause.classList.contains('hide') ? iconPause.classList.remove('hide') : '';
+      buttonMic.value = 'connect';
+      textMic.innerText = 'Pausar conversación';
+    } else {
+      iconMic.classList.contains('hide') ? iconMic.classList.remove('hide') : '';
+      iconPause.classList.contains('hide') ? '' : iconPause.classList.add('hide');
+      buttonMic.value = 'disconnect';
+
+      let currentMode = localStorage.getItem('mode_view');
+      currentMode == 2 ?
+        textMic.innerText = 'Reanudar conversación'
+        :
+        textMic.innerText = 'Presiona para hablar con Mia'
+
+    }
+  }
+  // Animación de sonido
+  var siriWave = new SiriWave({
+    container: document.getElementById("visualiser"),
+    // cover: true, // means the visualisation scales *responsively* according to the element's dimensions
+    // amplitude: 0.5,
+    // frequency: 2,
+    speed: 0.1,
+    width: 640,
+    height: 200,
     style: "ios9"
   });
+
+
 </script>

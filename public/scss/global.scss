@@ -1,6 +1,6 @@
 .hide,
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 html {
@@ -9,7 +9,6 @@ html {
 }
 
 body {
-    // background-color: $background_pages_MIA;
     color: $black_MIA;
     height: 100vh;
     top: 0;
@@ -24,9 +23,10 @@ body {
 
     footer#contentByPlatzi {
         position: absolute;
-        bottom: 15px;
+        bottom: 1.5em;
         width: 100%;
-        text-align: center;
+        text-align: left;
+        margin-left: 2em;
 
         img#ByPlatzi {
             width: 5em;

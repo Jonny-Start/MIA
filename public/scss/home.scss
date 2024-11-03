@@ -4,15 +4,28 @@ body#home {
         width: 100%;
         text-align: center;
         text-align: -webkit-center;
-        margin-top: 13em;
+        margin-top: 9em;
+
+        #visualiser {
+            height: 3rem;
+            position: relative;
+
+            canvas {
+                position: absolute;
+                top: -4em;
+                inset-area: center;
+            }
+        }
 
         h1 {
-            font-size: 3rem;
+            font-size: 2rem;
             margin-top: 0;
+            font-weight: 100;
+            margin-bottom: 2em;
         }
 
         div#contentInput {
-            background-color: white;
+            background-color: #ffffff30;
             height: 3rem;
             border-radius: 20px;
             max-width: 51em;
@@ -22,8 +35,10 @@ body#home {
             flex-direction: row;
             align-items: center;
             gap: 15px;
+            // filter: blur(0);
 
             input {
+                background-color: transparent;
                 padding: 2px;
                 line-height: calc(3rem - 4px);
                 outline: none;
@@ -31,6 +46,10 @@ body#home {
                 border: 0px;
                 padding-left: 2em;
                 width: -webkit-fill-available;
+            }
+
+            input::-webkit-input-placeholder {
+                color: white;
             }
 
             img {
@@ -47,27 +66,60 @@ body#home {
                 margin-right: 1em;
                 cursor: pointer;
             }
+        }
 
-            button.iconMic{
-                background-color: #aa56ec;
-                width: 36px;
-                border-radius: 50%;
-                display: flex;
-                justify-content: center;
-                height: 28px;
-                align-items: center;
-                margin: 0;
-                padding: 0;
-            }
-            button.iconMic.active{
-                background-color: #42f983;
+    }
+
+    div#contentMic {
+        width: 100%;
+        text-align: -webkit-center;
+        margin-top: 5em;
+
+        button.iconMic {
+            background-color: #ffffff30;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            height: 70px;
+            width: 70px;
+        }
+
+        p {
+            font-size: 12px;
+            font-weight: 100;
+        }
+
+        button#changeText {
+            background-color: transparent;
+            border-radius: 25px;
+            border: 1px solid white;
+
+            display: flex;
+            color: white;
+            align-items: center;
+            gap: 10px;
+            font-size: 12px;
+            padding: 5px 15px;
+            margin-top: 2em;
+
+            img {
+                width: 20px;
             }
         }
+
+        // button.iconMic.active::before {
+        //     content: '||';
+        //     background-color: #42f983;
+        // }
     }
 }
 
 body#home.background {
-    background-image: url('/img/MIA_Hackaton_BG_gradient.jpg');
+    background-image: url('/img/MIA_Hackaton_BG_gradient_desktop.jpg');
     background-size: cover;
     width: 100vw;
     height: 100vh;
@@ -75,7 +127,7 @@ body#home.background {
 
     color: white;
 
-    footer{
+    footer {
         color: white;
     }
 }
