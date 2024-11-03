@@ -4,7 +4,19 @@ body#goal {
         width: 100%;
         text-align: center;
         text-align: -webkit-center;
-        margin-top: 8em;
+        margin-top: 4em;
+
+        #contentLinkBack {
+            text-align: left;
+
+            a {
+                margin-left: 4em;
+                font-size: 14px;
+                display: flex;
+                gap: 0.5em;
+                align-items: center;
+            }
+        }
 
         h1 {
             font-size: 2rem;
@@ -67,4 +79,101 @@ body#goal {
             cursor: pointer;
         }
     }
+}
+
+body#goal {
+
+    /* Media query para pantallas pequeñas, menores a 768px */
+    @media (max-width: 768px) {
+       
+    }
+
+    /* Media query adicional para pantallas extra pequeñas, menores a 480px */
+    @media (max-width: 480px) {
+        section#content {
+            .contentCards .card p {
+                text-align: left;
+                padding-right: 3em;
+                margin-top: 0em;
+            }
+
+            button {
+                font-size: 0.9rem;
+            }
+        }
+    }
+}
+
+
+body#goal {
+
+    /* Media query para pantallas en orientación portrait (vertical) */
+    @media (orientation: portrait) and (max-width: 768px) {
+        section#logoHeader {
+            margin-left: 0.8em;
+            margin-top: 1.2em;
+        }
+
+        section#generateAndLogin {
+            top: 3.2em;
+            right: 2em;
+        }
+
+        section#content {
+            padding: 0 1em;
+            margin-top: 6em;
+
+            #contentLinkBack {
+                a {
+                    margin-left: 1em;
+                    font-size: 14px;
+
+                    p {
+                        display: none;
+                    }
+                }
+            }
+
+            h1 {
+               font-size: 1.5rem;
+                margin-bottom: 2em;
+            }
+
+            .contentCards {
+                flex-direction: column;
+                flex-wrap: nowrap;
+                gap: 0.5em;
+
+                .card {
+                    width: 95%;
+                    height: 9em;
+                    padding: 0em 0em;
+                    display: flex;
+                    align-items: center;
+
+                    .card__img {
+                        padding: 1em;
+
+                        img {
+                            width: 4em;
+                        }
+                    }
+
+                    p {
+                        position: static;
+                        margin-top: 1em;
+                        font-size: 14px;
+                    }
+                }
+            }
+
+            button {
+                width: 9em;
+                margin-top: 4em;
+                line-height: 3em;
+            }
+        }
+    }
+
+  
 }
