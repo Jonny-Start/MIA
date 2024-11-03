@@ -12,11 +12,13 @@ body {
     color: $black_MIA;
     height: 100vh;
     top: 0;
-    position: relative;
+    // position: relative;
+    position: absolute;
     display: contents;
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    // overflow: hidden;
+    overflow: auto;
 
     font-family: Outfit, sans-serif;
 
@@ -24,7 +26,7 @@ body {
     footer#contentByPlatzi {
         position: absolute;
         bottom: 1.5em;
-        width: 100%;
+        width: fit-content;
         text-align: left;
         margin-left: 2em;
 
