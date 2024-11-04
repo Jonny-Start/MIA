@@ -144,10 +144,18 @@ body#home {
             }
         }
 
-        // button.iconMic.active::before {
-        //     content: '||';
-        //     background-color: #42f983;
-        // }
+    }
+
+    button#muteButton {
+        position: absolute;
+        right: 2em;
+        background-color: transparent;
+        border: none;
+        bottom: 1.5em;
+
+        img {
+            width: 2em;
+        }
     }
 }
 
