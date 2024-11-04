@@ -30,7 +30,7 @@ const change_active_view = () => {
       : "";
 
     changeIconMic("connect");
-    connect_interaction("connect");
+    // connect_interaction("connect");
   } else {
     contentInput.classList.contains("hide")
       ? contentInput.classList.remove("hide")
@@ -53,10 +53,15 @@ const change_active_view = () => {
 };
 
 const connect_interaction = (type_method) => {
-  changeIconMic(type_method);
-  iframe.contentWindow.postMessage({
-    type: type_method
-  }, '*');
+  console.log("connect_interaction -> type_method", type_method);
+
+    changeIconMic(type_method);
+    iframe.contentWindow.postMessage(
+      {
+        type: type_method,
+      },
+      "*"
+    );
 };
 
 buttonMic.addEventListener("click", () => {
@@ -66,10 +71,17 @@ buttonMic.addEventListener("click", () => {
 
   return connect_interaction(value);
 });
+
 changeText.addEventListener("click", () => {
   return change_active_view();
 });
 
+/**
+ * Cambiar icono del micrófono
+ * @param {String} option
+ * @returns void
+ * @description Cambia el icono del micrófono y el texto del botón
+ */
 function changeIconMic(option) {
   if (option == "connect") {
     iconMic.classList.contains("hide") ? "" : iconMic.classList.add("hide");
@@ -89,7 +101,10 @@ function changeIconMic(option) {
       : (textMic.innerText = "Presiona para hablar con Mia");
   }
 }
-// Animación de sonido
+
+/**
+ * Animación de sonido
+ */
 var siriWave = new SiriWave({
   container: document.getElementById("visualiser"),
   cover: true, // means the visualisation scales *responsively* according to the element's dimensions
@@ -101,7 +116,10 @@ var siriWave = new SiriWave({
   style: "ios9",
 });
 
-//Breakpoint
+/**
+ * Breakpoint
+ * @param {MediaQueryListEvent} e
+ */
 const mediaQuery = window.matchMedia("(max-width: 820px)");
 
 // Función para manejar los cambios en el tamaño de pantalla
@@ -137,4 +155,3 @@ mediaQuery.addListener(handleScreenChange);
 
 // Ejecuta la función inicialmente para verificar el tamaño actual
 handleScreenChange(mediaQuery);
-
