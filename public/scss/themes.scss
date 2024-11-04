@@ -5,6 +5,9 @@ body#themes {
         // text-align: -webkit-center;
         max-width: 70%;
         margin: auto;
+        @media (max-width: $breakpoint-small) {
+            max-width: 85%;
+        }
         .go_back{
             font-size: 1.2rem;
             font-weight: 400;
@@ -27,16 +30,24 @@ body#themes {
             margin: 32px 0;
         }
         .cardswhite_options{
+            margin: 16px 0;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
+            @media (max-width: $breakpoint-small) {
+                grid-template-columns: 1fr;
+            }
             gap:12px;
             .input_mia{
                 position: relative;
                 display: flex;
                 align-items: center;
-                img{
+                .rombo_logo{
                     position: absolute;
                     left: 10px;
+                }
+                .arrow_up{
+                    position: absolute;
+                    right: 10px;
                 }
                 input{
                     border: none;
@@ -78,6 +89,9 @@ body#themes {
             grid-template-columns: 50% 50%;
             gap: 1em;
             margin-top: 6%;
+            @media (max-width: $breakpoint-small) {
+                grid-template-columns: 1fr;
+            }
             .cardgrey {
                 display: inline-block;
                 background-color: $background_cards_MIA;
