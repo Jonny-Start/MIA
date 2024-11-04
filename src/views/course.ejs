@@ -1,0 +1,56 @@
+<%- include('./hooks/logoHeader.ejs') %>
+<%- include('./hooks/generateAndLogin.ejs') %>
+
+<section id="content">
+    <h2>Aprende a comunicarte con ChatGPT</h2>
+    <div class="progress">
+        <span>Tu progreso</span>
+        <h3>10% Completado</h3>
+        <div class="range-slider ">
+            <input class="range-slider__range" type="range" value="250" min="0" max="500" step="50">
+        </div>
+    </div>
+    <div>
+        <div>En este curso te voy a enseñar lo básico de la Inteligencia Artificial, de forma rápida y sencilla. Si quieres empezar ya o aclarar algunos conceptos, este es el lugar perfecto. Además, tendrás recursos extra para seguir aprendiendo por tu cuenta.</div>
+    </div>
+    <div class="contentCards">
+        <div class="cardgrey" onclick="redirect('themes')">
+            <div class="card__img">
+                <i class="fa-regular fa-file-lines"></i>
+                <h4>Temas</h4>
+                <p>Explora conceptos clave de IA</p>
+            </div>
+        </div>
+        <div class="cardgrey" onclick="redirect('challenges')">
+            <div class="card__img">
+                <i class="fa-regular fa-flag"></i>
+                <h4>Retos</h4>
+                <p>Desafía tu aprendizaje en IA</p>
+            </div>
+        </div>
+        <div class="cardgrey" onclick="redirect('doubt')">
+            <div class="card__img">
+                <i class="fa-solid fa-circle-question"></i>
+                <h4>Dudas</h4>
+                <p>Resuelve tus preguntas en IA</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script type="text/javascript">
+    document.documentElement.style.backgroundColor = '#ffffff'; // Cambia el color de fondo de <html>
+    const cards = document.querySelectorAll('.cardgrey');
+
+    function redirect(card) {
+        if (card === 'themes') {
+            return window.location.href = '/themes';
+        }else if (card === 'challenges') {
+            return window.location.href = '/challenges';
+        }else if (card === 'doubt') {
+            return window.location.href = '/doubt';
+        }
+    }
+
+</script>
+<%- include('./hooks/ByPlatzi.ejs') %>

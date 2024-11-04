@@ -1,0 +1,57 @@
+<%- include('./hooks/logoHeader.ejs', {backgroundWhite: true} ) %>
+<%- include('./hooks/generateAndLogin.ejs', {backgroundWhite: true}) %>
+
+<section id="content">
+    <div class="go_back" onclick="javascript: window.location.href = '/course'">
+        <i class="fa-solid fa-arrow-left"></i>
+        <span>Atrás</span>
+    </div>
+    <div class="title">
+        <img src="img/Curso_Retos.svg">
+        <h2>Retos</h2>
+    </div>
+    <hr/>
+    <div></div>
+    <div>
+        <div>Explora y domina los conceptos clave de IA que necesitas para avanzar. Cada tema te guía paso a paso, ayudándote a construir una base sólida o profundizar en aspectos más complejos.</div>
+    </div>
+    <div class="contentCards">
+        <div class="cardgrey">
+            <div class="card__img">
+                <i class="fa-regular fa-flag"></i>
+                <h4>Retos</h4>
+                <p>Desafía tu aprendizaje en IA</p>
+            </div>
+        </div>
+        <div class="cardgrey">
+            <div class="card__img">
+                <i class="fa-solid fa-circle-question"></i>
+                <h4>Dudas</h4>
+                <p>Resuelve tus preguntas en IA</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script type="text/javascript">
+    document.documentElement.style.backgroundColor = '#ffffff'; // Cambia el color de fondo de <html>
+    const cards = document.querySelectorAll('.cardgrey');
+    const button = document.querySelector('#buttonNext');
+
+    cards.forEach(card => {
+        card.addEventListener('click', () => {
+            cards.forEach(item => item.classList.remove('active'));
+            card.classList.add('active');
+        });
+    });
+
+    button.addEventListener('click', () => {
+        const selectedCard = document.querySelector('.active');
+        if (selectedCard) {
+            window.location.href = '/generate';
+        } else {
+            alert('Selecciona una opción');
+        }
+    });
+</script>
+<%- include('./hooks/ByPlatzi.ejs') %>
