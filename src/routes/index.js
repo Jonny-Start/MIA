@@ -7,6 +7,8 @@ const goalController = require('../controllers/goal.controller');
 const generateController = require('../controllers/generate.controller');
 const themesController = require('../controllers/themes.controller');
 const courseController = require('../controllers/course.controller');
+const challengesController = require('../controllers/challenges.controller');
+const doubtController = require('../controllers/doubt.controller');
 
 
 
@@ -18,6 +20,8 @@ router.route('/goal').get(goalController.get).post(goalController.post);
 router.route('/generate').get(generateController.get).post(generateController.post);
 router.route('/course').get(courseController.get).post(courseController.post);
 router.route('/themes').get(themesController.get).post(themesController.post);
+router.route('/challenges').get(challengesController.get).post(challengesController.post);
+router.route('/doubt').get(doubtController.get).post(doubtController.post);
 
 
 //Export
