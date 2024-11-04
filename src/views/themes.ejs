@@ -1,0 +1,85 @@
+<%- include('./hooks/logoHeader.ejs', {backgroundWhite: true} ) %>
+<%- include('./hooks/generateAndLogin.ejs', {backgroundWhite: true}) %>
+
+<section id="content">
+    <div class="go_back">
+        <i class="fa-solid fa-arrow-left"></i>
+        <span>Atrás</span>
+    </div>
+    <div class="title">
+        <i class="fa-regular fa-file-lines"></i>
+        <h2>Temas</h2>
+    </div>
+    <hr/>
+    <div>
+        <div>Explora y domina los conceptos clave de IA que necesitas para avanzar. Cada tema te guía paso a paso, ayudándote a construir una base sólida o profundizar en aspectos más complejos.</div>
+    </div>
+    <div class="cardswhite_options">
+        <div class="cardwhite">
+            <h3>Qué es Inteligencia Artificial?</h3>
+            <div class="cardtag_option">
+                Bases
+            </div>
+        </div>
+        <div class="cardwhite">
+            <h3>Aplicaciones de la IA</h3>
+            <div class="cardtag_option">
+                Referencias
+            </div>
+        </div>
+        <div class="cardwhite">
+            <h3>Ética en la IA</h3>
+            <div class="cardtag_option">
+                Work
+            </div>
+        </div>
+        <%- include('./hooks/inputaskMia.ejs') %>
+        <!-- <div class="input_mia">
+            <img class="rombo_logo" src="/img/rombo_logo.svg">
+            <input class="cardwhite" placeholder="Preguntale a MIA...">
+            <img class="arrow_up" src="/img/Arrow_up.svg">
+            
+        </div> -->
+        
+        </div>
+    </div>
+    <div class="contentCards">
+        <div class="cardgrey">
+            <div class="card__img">
+                <i class="fa-regular fa-flag"></i>
+                <h4>Retos</h4>
+                <p>Desafía tu aprendizaje en IA</p>
+            </div>
+        </div>
+        <div class="cardgrey">
+            <div class="card__img">
+                <i class="fa-solid fa-circle-question"></i>
+                <h4>Dudas</h4>
+                <p>Resuelve tus preguntas en IA</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script type="text/javascript">
+    document.documentElement.style.backgroundColor = '#ffffff'; // Cambia el color de fondo de <html>
+    const cards = document.querySelectorAll('.cardgrey');
+    const button = document.querySelector('#buttonNext');
+
+    cards.forEach(card => {
+        card.addEventListener('click', () => {
+            cards.forEach(item => item.classList.remove('active'));
+            card.classList.add('active');
+        });
+    });
+
+    button.addEventListener('click', () => {
+        const selectedCard = document.querySelector('.active');
+        if (selectedCard) {
+            window.location.href = '/generate';
+        } else {
+            alert('Selecciona una opción');
+        }
+    });
+</script>
+<%- include('./hooks/ByPlatzi.ejs') %>

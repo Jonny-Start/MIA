@@ -1,0 +1,132 @@
+body#themes {
+    section#content {
+        width: 100%;
+        // text-align: center;
+        // text-align: -webkit-center;
+        max-width: 70%;
+        margin: auto;
+        @media (max-width: $breakpoint-small) {
+            max-width: 85%;
+        }
+        .go_back{
+            font-size: 1.2rem;
+            font-weight: 400;
+
+        }
+        .title{
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin: 32px 0 0;
+            i{
+                font-size: 3rem;
+            }
+             h2 {
+                font-size: 3rem;
+                margin: 0;
+            }
+        }
+        hr{
+            margin: 32px 0;
+        }
+        .cardswhite_options{
+            margin: 16px 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            @media (max-width: $breakpoint-small) {
+                grid-template-columns: 1fr;
+            }
+            gap:12px;
+            .input_mia{
+                position: relative;
+                display: flex;
+                align-items: center;
+                .rombo_logo{
+                    position: absolute;
+                    left: 10px;
+                }
+                .arrow_up{
+                    position: absolute;
+                    right: 10px;
+                }
+                input{
+                    border: none;
+                    width: 100%;
+                    padding: 18px 32px;
+                }
+
+
+            }
+            .cardwhite{
+                box-shadow: 0px 2px 4px 0px #0F0F0F1A;
+                box-shadow: 0px 0px 0px 1px #0F0F0F1A;
+                padding: 18px;
+                border-radius: 8px;
+                h3{
+                    font-size: 18px;
+                    font-weight: 400;
+                    margin: 0;
+                }
+                
+                .cardtag_option{
+                    background: #FDECC8;
+                    font-family: Outfit;
+                    font-size: 14px;
+                    font-weight: 400;
+                    text-align: center;
+                    display: inline-block;
+                    margin: 6px 0;
+                    border-radius: 6px;
+                    padding: 2px 6px;
+                }
+               
+
+            }
+        }
+
+        .contentCards {
+            display: grid;
+            grid-template-columns: 50% 50%;
+            gap: 1em;
+            margin-top: 6%;
+            @media (max-width: $breakpoint-small) {
+                grid-template-columns: 1fr;
+            }
+            .cardgrey {
+                display: inline-block;
+                background-color: $background_cards_MIA;
+                border-radius: 20px;
+                padding: 65px 34px;
+
+                i {
+                    font-size: 1.5rem;
+                }
+
+                h4{
+                    margin: 0;
+                    font-size: 1.5rem;
+                }
+                p{
+                    margin: 0;
+                }
+            }
+
+            .cardgrey:hover,
+            .cardgrey.active {
+                background-color: $light_green_MIA;
+            }
+        }
+
+        button {
+            background-color: $black_MIA;
+            color: white;
+            border: none;
+            line-height: 2em;
+            border-radius: 20px;
+            width: 8em;
+            margin-top: 10em;
+            cursor: pointer;
+        }
+    }
+
+}
