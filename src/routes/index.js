@@ -9,6 +9,7 @@ const themesController = require('../controllers/themes.controller');
 const courseController = require('../controllers/course.controller');
 const challengesController = require('../controllers/challenges.controller');
 const doubtController = require('../controllers/doubt.controller');
+const loadingController = require('../controllers/loading.controller');
 
 
 
@@ -22,6 +23,7 @@ router.route('/course').get(courseController.get).post(courseController.post);
 router.route('/themes').get(themesController.get).post(themesController.post);
 router.route('/challenges').get(challengesController.get).post(challengesController.post);
 router.route('/doubt').get(doubtController.get).post(doubtController.post);
+router.route('/loading').get(loadingController.get).post(loadingController.post);
 
 //Export
 module.exports = router;
