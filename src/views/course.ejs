@@ -14,21 +14,21 @@
         <div>En este curso te voy a enseñar lo básico de la Inteligencia Artificial, de forma rápida y sencilla. Si quieres empezar ya o aclarar algunos conceptos, este es el lugar perfecto. Además, tendrás recursos extra para seguir aprendiendo por tu cuenta.</div>
     </div>
     <div class="contentCards">
-        <div class="cardgrey">
+        <div class="cardgrey" onclick="redirect('themes')">
             <div class="card__img">
                 <i class="fa-regular fa-file-lines"></i>
                 <h4>Temas</h4>
                 <p>Explora conceptos clave de IA</p>
             </div>
         </div>
-        <div class="cardgrey">
+        <div class="cardgrey" onclick="redirect('challenges')">
             <div class="card__img">
                 <i class="fa-regular fa-flag"></i>
                 <h4>Retos</h4>
                 <p>Desafía tu aprendizaje en IA</p>
             </div>
         </div>
-        <div class="cardgrey">
+        <div class="cardgrey" onclick="redirect('doubt')">
             <div class="card__img">
                 <i class="fa-solid fa-circle-question"></i>
                 <h4>Dudas</h4>
@@ -41,22 +41,16 @@
 <script type="text/javascript">
     document.documentElement.style.backgroundColor = '#ffffff'; // Cambia el color de fondo de <html>
     const cards = document.querySelectorAll('.cardgrey');
-    const button = document.querySelector('#buttonNext');
 
-    cards.forEach(card => {
-        card.addEventListener('click', () => {
-            cards.forEach(item => item.classList.remove('active'));
-            card.classList.add('active');
-        });
-    });
-
-    button.addEventListener('click', () => {
-        const selectedCard = document.querySelector('.active');
-        if (selectedCard) {
-            window.location.href = '/generate';
-        } else {
-            alert('Selecciona una opción');
+    function redirect(card) {
+        if (card === 'themes') {
+            return window.location.href = '/themes';
+        }else if (card === 'challenges') {
+            return window.location.href = '/challenges';
+        }else if (card === 'doubt') {
+            return window.location.href = '/doubt';
         }
-    });
+    }
+
 </script>
 <%- include('./hooks/ByPlatzi.ejs') %>
