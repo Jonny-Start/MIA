@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="icon" type="image/x-icon" href="/img/icono.ico">
   <script src="/js/kit_fontawesome.js" crossorigin="anonymous"></script> <!-- 6.5.2 -->
-  <script src="/js/kit_fontawesome.js" crossorigin="anonymous"></script> <!-- 6.5.2 -->
   <link rel="stylesheet" href="/css/animate.min.css" /> <!-- 4.1.1 -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,6 +16,29 @@
 
 <body id="<%- body %>" class="<%= body == 'home' ? 'background' : '' %>">
   <%- include(body, { data: typeof data !='undefined' ? data : [] }) %>
+
+    <script>
+      // Escuchar evento enviado desde el iframe
+      window.addEventListener('message', (event) => {
+        if (event.origin !== "http://localhost:3000") return; // Verificar origen para mayor seguridad
+        if (event.data.type === "send_course") {
+          console.log('send_course', event.data);
+
+          // {
+          //   difficulty :"basic",
+          //   format : "text",
+          //   objective: "quick basics of the subject",
+          //   requested_cours : "chatgpt",
+          //   type:"send_course"
+          // }
+        }
+      });
+
+      // window.addEventListener('send_course', (event) => {
+      //   alert('send_course');
+      //   console.log('send_course', event.detail);
+      // });
+    </script>
 </body>
 
 </html>

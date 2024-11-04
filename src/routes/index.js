@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
 //Controllers
@@ -22,7 +22,6 @@ router.route('/course').get(courseController.get).post(courseController.post);
 router.route('/themes').get(themesController.get).post(themesController.post);
 router.route('/challenges').get(challengesController.get).post(challengesController.post);
 router.route('/doubt').get(doubtController.get).post(doubtController.post);
-
 
 //Export
 module.exports = router;

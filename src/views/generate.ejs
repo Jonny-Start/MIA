@@ -2,8 +2,9 @@
 <%- include('./hooks/generateAndLogin.ejs') %>
 
 <section id="content">
-    <h1>Personaliza tu experiencia de aprendizaje</h1>
-    <div class="contentCards">
+  <h1>Personaliza tu experiencia de aprendizaje</h1>
+  <div class="contentCards">
+    <!-- 
         <div class="card">
             <h3>Duración del curso:</h3>
             <label for="15min">
@@ -23,36 +24,41 @@
                 60 min.
             </label>
         </div>
+    -->
 
-        <div class="card buttons">
-            <h3>Formato:</h3>
+    <div class="card buttons">
+      <h3>Formato:</h3>
+      <!--
             <input type="radio" name="format" value="video" id="video">
             <label for="video">Video</label>
+        -->
 
-            <input type="radio" name="format" value="text" id="text">
-            <label for="text">Texto</label>
+      <input type="radio" name="format" value="text" id="text">
+      <label for="text">Texto</label>
 
-            <input type="radio" name="format" value="audio" id="audio">
-            <label for="audio">Audio</label>
-        </div>
-
-        <div class="card">
-            <h3>Nivel de dificultad:</h3>
-            <label for="bases">
-                <input type="radio" name="level" value="1" id="bases">
-                Bases
-            </label>
-            <label for="specific">
-                <input type="radio" name="level" value="2" id="specific">
-                Tema específico
-            </label>
-            <label for="advanced">
-                <input type="radio" name="level" value="3" id="advanced">
-                Avanzado
-            </label>
-        </div>
+      <input type="radio" name="format" value="audio" id="audio">
+      <label for="audio">Audio</label>
     </div>
-    <button type="button" id="buttonNext">Siguiente</button>
+
+    <!--
+    <div class="card">
+        <h3>Nivel de dificultad:</h3>
+        <label for="bases">
+            <input type="radio" name="level" value="1" id="bases">
+            Bases
+        </label>
+        <label for="specific">
+            <input type="radio" name="level" value="2" id="specific">
+            Tema específico
+        </label>
+        <label for="advanced">
+            <input type="radio" name="level" value="3" id="advanced">
+            Avanzado
+        </label>
+    </div>
+    -->
+  </div>
+  <button type="button" id="buttonNext">Siguiente</button>
 </section>
 
 <%- include('./hooks/ByPlatzi.ejs') %>
