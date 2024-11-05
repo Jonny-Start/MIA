@@ -2,84 +2,107 @@
 <%- include('./hooks/generateAndLogin.ejs', {backgroundWhite: true}) %>
 
 <section id="content">
-    <div class="go_back" onclick="javascript: window.location.href = '/course'">
-        <i class="fa-solid fa-arrow-left"></i>
-        <span>Atrás</span>
+  <div class="go_back" onclick="javascript: window.location.href = '/course'">
+    <i class="fa-solid fa-arrow-left"></i>
+    <span>Atrás</span>
+  </div>
+  <div class="title">
+    <i class="fa-regular fa-file-lines"></i>
+    <h2>Temas</h2>
+  </div>
+  <hr />
+  <div>
+    <div>Este curso avanzado te llevará a través de la creación y uso de agentes de inteligencia artificial utilizando LangChain. Diseñado para profesionales con experiencia, aprenderás a desarrollar aplicaciones específicas que solucionen problemas complejos aprovechando la potencia de los modelos de lenguaje. Al finalizar, serás capaz de construir y desplegar agentes IA efectivos en diversos contextos.</div>
+  </div>
+  <div class="cardswhite_options">
+    <div class="cardwhite" onclick="showContent(1)">
+      <h3>Introducción a LangChain</h3>
+      <div class="cardtag_option">
+        ¿Qué es LangChain?
+      </div>
+      <div class="cardtag_option">
+        Ventajas y características de LangChain
+      </div>
     </div>
-    <div class="title">
-        <i class="fa-regular fa-file-lines"></i>
-        <h2>Temas</h2>
+    <div class="cardwhite" onclick="showContent(2)">
+      <h3>Principios de los Agentes de IA</h3>
+      <div class="cardtag_option">
+        Definición de agentes de IA
+      </div>
+      <div class="cardtag_option">
+        Arquitectura de un agente
+      </div>
+      <div class="cardtag_option">
+        Interacción con usuarios
+      </div>
     </div>
-    <hr/>
-    <div>
-        <div>Explora y domina los conceptos clave de IA que necesitas para avanzar. Cada tema te guía paso a paso, ayudándote a construir una base sólida o profundizar en aspectos más complejos.</div>
+    <div class="cardwhite" onclick="showContent(3)">
+      <h3>Construcción de un Agente de IA con LangChain</h3>
+      <div class="cardtag_option">
+        Configuración del entorno
+      </div>
+      <div class="cardtag_option">
+        Integración de modelos de lenguaje
+      </div>
     </div>
-    <div class="cardswhite_options">
-        <div class="cardwhite">
-            <h3>Qué es Inteligencia Artificial?</h3>
-            <div class="cardtag_option">
-                Bases
-            </div>
-        </div>
-        <div class="cardwhite">
-            <h3>Aplicaciones de la IA</h3>
-            <div class="cardtag_option">
-                Referencias
-            </div>
-        </div>
-        <div class="cardwhite">
-            <h3>Ética en la IA</h3>
-            <div class="cardtag_option">
-                Work
-            </div>
-        </div>
-        <%- include('./hooks/inputaskMia.ejs') %>
-        <!-- <div class="input_mia">
+    <div class="cardwhite" onclick="showContent(4)">
+      <h3>Implementación de Aplicaciones Específicas</h3>
+      <div class="cardtag_option">
+        Casos de uso prácticos
+      </div>
+      <div class="cardtag_option">
+        Despliegue y mantenimiento
+      </div>
+    </div>
+    <div class="cardwhite" onclick="showContent(5)">
+      <h3>Proyecto Final</h3>
+      <div class="cardtag_option">
+        Descripción del proyecto
+      </div>
+    </div>
+    <%- include('./hooks/inputaskMia.ejs') %>
+    <!-- <div class="input_mia">
             <img class="rombo_logo" src="/img/rombo_logo.svg">
             <input class="cardwhite" placeholder="Preguntale a MIA...">
             <img class="arrow_up" src="/img/Arrow_up.svg">
             
         </div> -->
-        
-        </div>
+
+  </div>
+  </div>
+  <div class="contentCards">
+    <div class="cardgrey">
+      <div class="card__img">
+        <i class="fa-regular fa-flag"></i>
+        <h4>Retos</h4>
+        <p>Desafía tu aprendizaje en IA</p>
+      </div>
     </div>
-    <div class="contentCards">
-        <div class="cardgrey">
-            <div class="card__img">
-                <i class="fa-regular fa-flag"></i>
-                <h4>Retos</h4>
-                <p>Desafía tu aprendizaje en IA</p>
-            </div>
-        </div>
-        <div class="cardgrey">
-            <div class="card__img">
-                <i class="fa-solid fa-circle-question"></i>
-                <h4>Dudas</h4>
-                <p>Resuelve tus preguntas en IA</p>
-            </div>
-        </div>
+    <div class="cardgrey">
+      <div class="card__img">
+        <i class="fa-solid fa-circle-question"></i>
+        <h4>Dudas</h4>
+        <p>Resuelve tus preguntas en IA</p>
+      </div>
     </div>
+  </div>
 </section>
 
-<script type="text/javascript">
-    document.documentElement.style.backgroundColor = '#ffffff'; // Cambia el color de fondo de <html>
-    const cards = document.querySelectorAll('.cardgrey');
-    const button = document.querySelector('#buttonNext');
-
-    cards.forEach(card => {
-        card.addEventListener('click', () => {
-            cards.forEach(item => item.classList.remove('active'));
-            card.classList.add('active');
-        });
-    });
-
-    button.addEventListener('click', () => {
-        const selectedCard = document.querySelector('.active');
-        if (selectedCard) {
-            window.location.href = '/generate';
-        } else {
-            alert('Selecciona una opción');
-        }
-    });
-</script>
 <%- include('./hooks/ByPlatzi.ejs') %>
+
+<script type="text/javascript">
+  document.documentElement.style.backgroundColor = '#ffffff'; // Cambia el color de fondo de <html>
+  function showContent(content) {
+    if (content === 1) {
+      return loadMarkdown('markdown', 'introduction');
+    } else if (content === 2) {
+      return loadMarkdown('markdown', 'principles');
+    } else if (content === 3) {
+      return loadMarkdown('markdown', 'contruction');
+    } else if (content === 4) {
+      return loadMarkdown('markdown', 'implementation');
+    } else if (content === 5) {
+      return loadMarkdown('markdown', 'project');
+    }
+  }
+</script>

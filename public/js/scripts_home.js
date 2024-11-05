@@ -108,11 +108,11 @@ function changeIconMic(option) {
 var siriWave = new SiriWave({
   container: document.getElementById("visualiser"),
   cover: true, // means the visualisation scales *responsively* according to the element's dimensions
-  // amplitude: 0.5,
+  amplitude: 4,
   // frequency: 2,
-  speed: 0.1,
+  speed: 0.2,
   width: 640,
-  height: 200,
+  height:400,
   style: "ios9",
 });
 

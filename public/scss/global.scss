@@ -5,7 +5,7 @@
 
 html {
     background-color: $background_pages_MIA;
-    overflow: hidden;
+    overflow: auto;
 }
 
 body {
@@ -24,7 +24,7 @@ body {
 
 
     footer#contentByPlatzi {
-        position: absolute;
+        position: fixed;
         bottom: 1.5em;
         width: fit-content;
         text-align: left;

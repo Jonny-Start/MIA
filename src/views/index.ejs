@@ -15,23 +15,98 @@
 <body id="<%- body %>" class="<%= body == 'home' ? 'background' : '' %>">
   <%- include(body, { data: typeof data !='undefined' ? data : [] }) %>
 
-    <script>
-      // Escuchar evento enviado desde el iframe
-      window.addEventListener('message', (event) => {
-        if (event.origin !== "http://localhost:3000") return; // Verificar origen para mayor seguridad
-        if (event.data.type === "send_course") {
-          console.log('send_course', event.data);
+  <script>
+    // Escuchar evento enviado desde el iframe
+    window.addEventListener('message', async (event) => {
+      if (event.origin !== "http://localhost:3000") return; // Verificar origen para mayor seguridad
+      if (event.data.type === "send_course") {
+        console.log('send_course', event.data);
+        const {
+          difficulty,
+          format,
+          objective,
+          requested_cours
+        } = event.data;
 
-          // {
-          //   difficulty :"basic",
-          //   format : "text",
-          //   objective: "quick basics of the subject",
-          //   requested_cours : "chatgpt",
-          //   type:"send_course"
-          // }
-        }
-      });
-    </script>
+        // Desconexion del iframe
+        iframe.contentWindow.postMessage({
+            type: "disconnect",
+          },
+          "*"
+        );
+
+        // Cargar la página de carga
+        loadPage('loading/render');
+
+        console.time('dataExtract');
+        // Enviar datos al endpoint
+        const dataExtract = await fetch(`https://rendonluis.app.n8n.cloud/webhook/6d8206d8-22ad-4a72-b743-a2d73bf9d334?Topic=${requested_cours}&Objectives=${objective}&Preferences=Text format, brief (3,000 words)&Difficulty Level=${difficulty}`, {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            // body: JSON.stringify(event.data)
+          }).then(response => response.json())
+          .then((data) => {
+            //Imprimo la respuesta
+            console.log('Success:', data);
+            return data;
+          })
+          .catch((error) => {
+            console.error('Error:', error);
+          });
+
+        // Cargar la página de resultados
+        // loadPage('results/render', {
+        //   data: dataExtract
+        // });
+
+        console.log('dataExtract', dataExtract);
+        console.timeEnd('dataExtract');
+      }
+    });
+
+
+
+    //Cargar paginas sin recargar
+    function loadPage(page, markdown) {
+      //Fetch con body 
+      fetch(`/${page}`)
+        .then(response => response.text())
+        .then(html => {
+          const [endPoint, action] = page.split('/');
+          document.body.id = endPoint;
+          document.body.innerHTML = html;
+          history.pushState({
+            page
+          }, page, `/${endPoint}`);
+        })
+        .catch(error => console.error('Error al cargar la página:', error));
+    }
+
+    function loadMarkdown(page, markdown) {
+      fetch(`/markdown/${markdown}`)
+        .then(response => response.text())
+        .then(html => {
+          // Muestra el contenido de markdown en el elemento con id 'markdown'
+          document.body.innerHTML = html;
+          // Actualiza el id del body para reflejar la página actual
+          document.body.id = page;
+
+          // Actualiza la URL sin recargar la página
+          history.pushState({
+            page
+          }, page, `/${page}`);
+        })
+        .catch(error => console.error('Error al cargar el markdown:', error));
+    }
+
+    window.addEventListener('popstate', (event) => {
+      if (event.state && event.state.page) {
+        loadPage(event.state.page);
+      }
+    });
+  </script>
 </body>
 
 </html>

@@ -3,20 +3,20 @@ body#loading {
         width: 100%;
         text-align: center;
         text-align: -webkit-center;
-        margin-top: 8%;
+        margin-top: 2em;
         h1 {
             font-size: 2rem;
             font-weight: 100;
         }
         img{
-            width: 40%;
+            width: 23em;
         }
         .loader {
             font-size: 10px;
             margin: 50px auto;
             text-indent: -9999em;
-            width: 11em;
-            height: 11em;
+            width: 8em;
+            height: 8em;
             border-radius: 50%;
             background: #49EB8B;
             background: linear-gradient(to right, #49EB8B 10%, rgba(0,0,0, 0) 42%);

@@ -5,6 +5,7 @@ body#themes {
         // text-align: -webkit-center;
         max-width: 70%;
         margin: auto;
+        margin-bottom: 2em;
         @media (max-width: $breakpoint-small) {
             max-width: 85%;
         }
@@ -73,7 +74,7 @@ body#themes {
                     font-family: Outfit;
                     font-size: 14px;
                     font-weight: 400;
-                    text-align: center;
+                    text-align: left;
                     display: inline-block;
                     margin: 6px 0;
                     border-radius: 6px;
